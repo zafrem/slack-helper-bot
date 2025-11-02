@@ -1,0 +1,49 @@
+# Action Execution Plan
+
+**Requested by:** {{ user_name }}
+**Channel:** {{ channel_name }}
+
+## Action
+**{{ action_name }}**
+
+## Parameters
+{% if parameters %}
+{% for key, value in parameters.items() %}
+- **{{ key }}:** `{{ value }}`
+{% endfor %}
+{% else %}
+_No parameters_
+{% endif %}
+
+## Preconditions
+{% if preconditions %}
+{{ preconditions }}
+{% else %}
+✓ All preconditions met
+{% endif %}
+
+## Impact Assessment
+{% if impact %}
+{{ impact }}
+{% else %}
+⚠️ This action will affect: _To be determined_
+{% endif %}
+
+## Rollback Plan
+{% if rollback %}
+{{ rollback }}
+{% else %}
+_Standard rollback procedures apply_
+{% endif %}
+
+## Estimated Duration
+{% if duration %}
+{{ duration }}
+{% else %}
+~2-5 minutes
+{% endif %}
+
+---
+⚠️ **APPROVAL REQUIRED** ⚠️
+
+This action requires explicit approval before execution. Please review the plan carefully and approve only if you're certain.

@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: slack-rag-assistant
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"  # Web dashboard
+      - "9090:9090"  # Prometheus metrics
+    volumes:
+      - ./config:/app/config
+      - ./data:/app/data
+    depends_on:
+      - postgres
+    restart: unless-stopped
+    networks:
+      - slack-rag-network
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: slack-rag-postgres
+    environment:
+      POSTGRES_USER: slackrag
+      POSTGRES_PASSWORD: slackrag_password
+      POSTGRES_DB: slack_rag_assistant
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - slack-rag-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+
+networks:
+  slack-rag-network:
+    driver: bridge

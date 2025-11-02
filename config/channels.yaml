@@ -1,0 +1,45 @@
+# Channel Configuration
+# Configure which Slack channels the bot should monitor and how to process them
+
+channels:
+  # Example channel configuration
+  - channel_id: C_EXAMPLE
+    name: example-channel
+    rag_index: kb-example
+    retrieval_params:
+      top_k: 5
+      filters: {}
+      similarity_threshold: 0.7
+    approvers: []
+    sla_minutes: 120
+    first_response_minutes: 15
+    policies:
+      pii_redaction: true
+      action_whitelist: []
+      require_approval: true
+      max_actions_per_day: 100
+    enabled: false
+
+  # Add your channels here:
+  # - channel_id: C12345ABCDE
+  #   name: engineering-support
+  #   rag_index: kb-engineering
+  #   retrieval_params:
+  #     top_k: 5
+  #     filters:
+  #       product: core
+  #     similarity_threshold: 0.7
+  #   approvers:
+  #     - U111111  # User ID of approver 1
+  #     - U222222  # User ID of approver 2
+  #   sla_minutes: 120
+  #   first_response_minutes: 15
+  #   policies:
+  #     pii_redaction: true
+  #     action_whitelist:
+  #       - restart_service
+  #       - flush_cache
+  #       - clear_queue
+  #     require_approval: true
+  #     max_actions_per_day: 50
+  #   enabled: true

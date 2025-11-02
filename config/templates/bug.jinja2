@@ -1,0 +1,47 @@
+# Bug Report Summary
+
+**Reported by:** {{ user_name }}
+**Channel:** {{ channel_name }}
+
+## Problem Description
+{{ description }}
+
+## Steps to Reproduce
+{% if steps %}
+{{ steps }}
+{% else %}
+_Not provided_
+{% endif %}
+
+## Expected Result
+{% if expected %}
+{{ expected }}
+{% else %}
+_Not provided_
+{% endif %}
+
+## Actual Result
+{% if actual %}
+{{ actual }}
+{% else %}
+_Not provided_
+{% endif %}
+
+## Environment/Version
+{% if environment %}
+{{ environment }}
+{% else %}
+_Not provided_
+{% endif %}
+
+## Relevant Logs/Errors
+{% if logs %}
+```
+{{ logs }}
+```
+{% else %}
+_Not provided_
+{% endif %}
+
+---
+**Next Steps:** Please confirm if this summary is accurate. Once confirmed, I'll search for similar issues and provide guidance.
